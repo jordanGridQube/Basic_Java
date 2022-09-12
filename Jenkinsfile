@@ -15,20 +15,20 @@ pipeline {
 
             post {
                 success {
-                    bat 'echo \'Successfully retrieved git\''
+                    echo 'Successfully retrieved git repository'
                 }
             }
         }
         stage('Create') {
             steps {
                 // Run Java on a Windows agent, use
-                bat "javac CreateFile.java"
-                bat "java CreateFile"
+                javac CreateFile.java
+                java CreateFile
             }
 
             post {
                 success {
-                    bat 'echo "Created file"'
+                    echo "Created file"
                 }
             }
         }
@@ -41,7 +41,7 @@ pipeline {
 
             post {
                 success {
-                    bat 'echo "Message written to file"'
+                    echo "Message written to file"
                 }
             }
         }
@@ -49,13 +49,13 @@ pipeline {
             steps {
                 // Run Java on a Windows agent, use
                 bat "javac JavaFile.java"
-                bat "echo 'Message on file is:'"
+                echo 'Message on file is:'
                 bat "java JavaFile"
             }
 
             post {
                 success {
-                    bat 'echo "End of message."'
+                    echo "End of message."
                 }
             }
         }
