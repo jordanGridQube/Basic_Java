@@ -10,7 +10,7 @@ pipeline {
         stage('Git') {
             steps {
                 // Get some code from a GitHub repository
-                git 'https://github.com/jordanGridQube/Basic_Java.git'
+                git branch: 'test', credentialsId: '00bf52fe-0127-40f2-9075-4c560d284b59', url: 'https://github.com/jordanGridQube/Basic_Java.git'
             }
 
             post {
