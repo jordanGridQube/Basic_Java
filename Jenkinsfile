@@ -28,15 +28,15 @@ pipeline {
 
             post {
                 success {
-                    echo "Created file"
+                    echo "Successfully created file"
                 }
             }
         }
         stage('Write') {
             steps {
                 // Run Java on a Windows agent, use
-                bat "javac WriteFile.java"
-                bat "java WriteFile"
+                sh 'javac WriteFile.java'
+                sh 'java WriteFile'
             }
 
             post {
@@ -48,9 +48,9 @@ pipeline {
         stage('Read') {
             steps {
                 // Run Java on a Windows agent, use
-                bat "javac JavaFile.java"
+                sh 'javac JavaFile.java'
                 echo 'Message on file is:'
-                bat "java JavaFile"
+                sh 'java JavaFile'
             }
 
             post {
