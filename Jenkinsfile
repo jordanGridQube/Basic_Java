@@ -22,10 +22,8 @@ pipeline {
         stage('Create') {
             steps {
                 // Run Java on a Windows agent, use
-                powershell '''javac CreateFile.java
-                '''
-                powershell '''java CreateFile
-                '''
+                sh 'javac CreateFile.java'
+                sh 'java CreateFile'
             }
 
             post {
